@@ -1,37 +1,46 @@
+// DSU
+// 
+// https://judge.yosupo.jp/submission/126864
+
 struct DSU {
-    int n;
-    vector<int> link, sizes;
+    int n = 0, components = 0;
+    vector<int> parent;
+    vector<int> size;
 
-    DSU(int n) {
-        this->n = n;
-        link.assign(n+1, 0);
-        sizes.assign(n+1, 1);
-
-        for (int i = 0; i <= n; i++)
-            link[i] = i;
+    DSU(int nn){
+        n = nn;
+        components = n;
+        size.assign(n + 5, 1);
+        parent.assign(n + 5, 0);
+        iota(parent.begin(), parent.end(), 0);
     }
 
-    int find(int x) {
-        while (x != link[x])
-            x = link[x];
-        
-        return x;
+    int find(int x){
+        if(x == parent[x]) {
+            return x;
+        }
+        //path compression
+        return parent[x] = find(parent[x]); 
     }
 
-    bool same(int a, int b) {
-        return find(a) == find(b);
+    void join(int a, int b){
+        a = find(a); 
+        b = find(b);
+        if(a == b) {
+            return;
+        } 
+        if(size[a] < size[b]) {
+            swap(a, b);
+        } 
+        parent[b] = a;
+        size[a] += size[b];
+        components -= 1;
     }
-
-    void unite(int a, int b) {
+    
+    int sameSet(int a, int b) {
         a = find(a);
         b = find(b);
-        
-        if (a == b) return;
-        
-        if (sizes[a] < sizes[b])
-            swap(a, b);
-            
-        sizes[a] += sizes[b];
-        link[b] = a;
+        return a == b;
     }
+
 };
