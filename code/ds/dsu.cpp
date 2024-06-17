@@ -26,12 +26,15 @@ struct DSU {
     void join(int a, int b){
         a = find(a); 
         b = find(b);
+
         if(a == b) {
             return;
         } 
+        
         if(size[a] < size[b]) {
             swap(a, b);
-        } 
+        }
+        
         parent[b] = a;
         size[a] += size[b];
         components -= 1;
@@ -42,5 +45,4 @@ struct DSU {
         b = find(b);
         return a == b;
     }
-
 };
