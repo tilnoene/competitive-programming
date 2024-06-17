@@ -1,0 +1,8 @@
+\subsection{Sum of Divisors}
+
+Let the sum of divisors when only considering the first $i$ prime factors be $S_i$. The answer will be $S_N$.
+
+$$S_i = S_{i - 1} \sum_{j=0}^{k_{i}} x_{i}^{j}$$
+$$    = S_{i - 1} \cdot \dfrac{x_{i}^{k_{i}+1} - 1}{x_{i} - 1}$$
+
+We can calculate each $S_i$ using fast exponentiation and modular inverses in $\mathcal O(N \log(\max(k_i)))$ time.
