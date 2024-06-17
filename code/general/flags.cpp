@@ -1,0 +1,1 @@
+// g++ -std=c++17 -Wall -Wshadow -fsanitize=address -O2 -D -o cod a.cpp
