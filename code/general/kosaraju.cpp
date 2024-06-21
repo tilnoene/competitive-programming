@@ -1,30 +1,3 @@
-// https://codeforces.com/blog/entry/125435
-#ifdef MAXWELL_LOCAL_DEBUG
-#include "debug/debug_template.cpp"
-#define dbg debug
-#else
-#define debug(...)
-#define dbg debug
-#define debugArr(arr, n)
-#endif
-
-#include <bits/stdc++.h>
-#define ff first
-#define ss second
-
-using namespace std;
-using ll = long long;
-using ld = long double;
-using pii = pair<int,int>;
-using vi = vector<int>;
-
-using tii = tuple<int,int,int>;
-// auto [a,b,c] = ...
-// .insert({a,b,c})
-
-const int oo = (int)1e9 + 5; //INF to INT
-const ll OO = 0x3f3f3f3f3f3f3f3fLL; //INF to LL
-
 struct Kosaraju {
 
 	int N;
@@ -92,15 +65,3 @@ struct Kosaraju {
 	}
 
 };
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    int t = 1;
-    
-    while(t--) {
-        solve();
-    }
-
-}
