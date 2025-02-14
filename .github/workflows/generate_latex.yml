@@ -26,13 +26,13 @@ jobs:
         run: python generate_latex/generate_theoretical.py
 
       - name: upload theoretical.pdf
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: theoretical.pdf
           path: ./theoretical.pdf
       
       - name: upload notebook.pdf
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: notebook.pdf
           path: ./notebook.pdf
